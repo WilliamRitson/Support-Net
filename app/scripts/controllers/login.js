@@ -1,12 +1,12 @@
 'use strict';
 /**
  * @ngdoc function
- * @name supportnetApp.controller:LoginCtrl
+ * @name hackucscApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
  * Manages authentication to any active providers.
  */
-angular.module('supportnetApp')
+angular.module('hackucscApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
     $scope.oauthLogin = function(provider) {
       $scope.err = null;

@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc overview
- * @name supportnetApp
+ * @name hackucscApp
  * @description
- * # supportnetApp
+ * # hackucscApp
  *
  * Main module of the application.
  */
-angular.module('supportnetApp', [
+angular.module('hackucscApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

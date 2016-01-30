@@ -1,12 +1,12 @@
 /**
  * @ngdoc function
- * @name supportnetApp.directive:ngShowAuth
+ * @name hackucscApp.directive:ngShowAuth
  * @description
  * # ngShowAuthDirective
  * A directive that shows elements only when user is logged in. It also waits for Auth
  * to be initialized so there is no initial flashing of incorrect state.
  */
-angular.module('supportnetApp')
+angular.module('hackucscApp')
   .directive('ngShowAuth', ['Auth', '$timeout', function (Auth, $timeout) {
     'use strict';
 

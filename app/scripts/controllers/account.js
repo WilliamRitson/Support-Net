@@ -6,7 +6,7 @@
  * # AccountCtrl
  * Provides rudimentary account management functions.
  */
-angular.module('supportnetApp')
+angular.module('hackucscApp')
   .controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout) {
     $scope.user = user;
     $scope.logout = function() { Auth.$unauth(); };

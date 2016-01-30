@@ -1,13 +1,13 @@
 
 /**
  * @ngdoc function
- * @name supportnetApp.directive:ngHideAuth
+ * @name hackucscApp.directive:ngHideAuth
  * @description
  * # ngHideAuthDirective
  * A directive that shows elements only when user is logged out. It also waits for Auth
  * to be initialized so there is no initial flashing of incorrect state.
  */
-angular.module('supportnetApp')
+angular.module('hackucscApp')
   .directive('ngHideAuth', ['Auth', '$timeout', function (Auth, $timeout) {
     'use strict';
 

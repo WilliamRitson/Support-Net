@@ -1,7 +1,7 @@
 'use strict';
 /**
  * @ngdoc overview
- * @name supportnetApp:routes
+ * @name hackucscApp:routes
  * @description
  * # routes.js
  *
@@ -27,7 +27,7 @@
  *   }
  *
  */
-angular.module('supportnetApp')
+angular.module('hackucscApp')
 
 /**
  * Adds a special `whenAuthenticated` method onto $routeProvider. This special method,
@@ -62,6 +62,18 @@ angular.module('supportnetApp')
         controller: 'MainCtrl'
       })
 
+      .when('/chat', {
+        templateUrl: 'views/chat.html',
+        controller: 'ChatCtrl'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .whenAuthenticated('/account', {
+        templateUrl: 'views/account.html',
+        controller: 'AccountCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
