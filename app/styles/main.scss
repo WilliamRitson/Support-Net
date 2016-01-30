@@ -91,14 +91,59 @@ body {
   }
 }
 
-.logo {
-	
+.o-r-list-cont{
+  margin-left:20px;
+  margin-right:20px;
+  height:400px;
+  border-radius:15px;
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.5);
 }
 
-.firsthook {
-	font-size: 36px;
+
+.o-r-list-header{
+  text-align:center;
+  width:100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-top:6px;
+  padding-bottom:3px;
+  font-size:18px;
 }
 
-.lasthook {
-	font-size: 36px
+.o-r-distance{
+  color:gray;
+}
+
+.o-r-list-contents{
+  height:350px;
+  overflow:scroll;
+  overflow-x:hidden;
+}
+
+.o-r-list{
+  
+}
+
+.o-r-btn{
+  padding: 3px;
+  margin-bottom:10px;
+}
+
+.request{
+  padding: 3px 10px 3px 10px;
+}
+
+.request:hover { 
+  box-shadow: inset 0px 0px 1px #000;
+}
+
+.request-info{
+  padding: 0px 10px 0px 30px; 
+}
+
+.request-header{
+
+}
+
+.category-image{
 }

@@ -74,7 +74,7 @@ angular.module('hackucscApp')
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
       })
-      .when('/edit-org', {
+      .when('/edit-org/:id', {
         templateUrl: 'views/edit-org.html',
         controller: 'EditOrgCtrl'
       })
@@ -82,11 +82,11 @@ angular.module('hackucscApp')
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       })
-      .when('/offer', {
+      .when('/offer/:id', {
         templateUrl: 'views/offer.html',
         controller: 'OfferCtrl'
       })
-      .when('/request-list', {
+      .when('/request-list/:id', {
         templateUrl: 'views/request-list.html',
         controller: 'RequestListCtrl'
       })
