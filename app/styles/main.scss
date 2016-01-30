@@ -110,6 +110,10 @@ body {
   font-size:18px;
 }
 
+.o-r-distance{
+  color:gray;
+}
+
 .o-r-list-contents{
   height:350px;
   overflow:scroll;
@@ -122,6 +126,7 @@ body {
 
 .o-r-btn{
   padding: 3px;
+  margin-bottom:10px;
 }
 
 .request{

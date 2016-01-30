@@ -8,10 +8,8 @@
  * Controller of the hackucscApp
  */
 angular.module('hackucscApp')
-  .controller('HomeCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('HomeCtrl', function ($scope, $firebaseArray, Ref) {
+    
+    $scope.requests = $firebaseArray(Ref.child("request"));
+
   });
