@@ -40,12 +40,12 @@ angular.module('hackucscApp')
     };
 
     $scope.okName = function (name) {
-      return name !== '' && !orgs[name];
+      return name !== '' && !orgs[name] || user.orgs.indexOf(name) !== -1;
     };
 
     $scope.done = function () {
       save();
-      $location.url('/request-list/'  + $scope.org.name);
+      $location.url('/organisation/'  + $scope.org.name);
     };
 
 

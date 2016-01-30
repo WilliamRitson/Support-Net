@@ -70,7 +70,7 @@ angular.module('hackucscApp')
       return f + str.substr(1);
     }
 
-  
+
 
     function redirect() {
       $location.path('/home');

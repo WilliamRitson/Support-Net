@@ -94,6 +94,10 @@ angular.module('hackucscApp')
         templateUrl: 'views/request.html',
         controller: 'RequestCtrl'
       })
+      .when('/organisation/:id', {
+        templateUrl: 'views/organisation.html',
+        controller: 'OrganisationCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
