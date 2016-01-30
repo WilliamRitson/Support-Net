@@ -78,6 +78,22 @@ angular.module('hackucscApp')
         templateUrl: 'views/edit-org.html',
         controller: 'EditOrgCtrl'
       })
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/offer', {
+        templateUrl: 'views/offer.html',
+        controller: 'OfferCtrl'
+      })
+      .when('/request-list', {
+        templateUrl: 'views/request-list.html',
+        controller: 'RequestListCtrl'
+      })
+      .when('/request', {
+        templateUrl: 'views/request.html',
+        controller: 'RequestCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
