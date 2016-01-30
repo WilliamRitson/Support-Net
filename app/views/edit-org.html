@@ -1,13 +1,24 @@
-<h2>This is the edit-org view.</h2>
 
-<form role="form">
-  <div class="form-group">
-    <label for="orgName">Organization Name:</label>
-    <input type="orgNm" class="form-control" id="orgNm">
+<form> 
+   <label for="name-input">Name:</label>
+    <input id="name-input" ng-model="org.name" class="form-control">
   </div>
   <div class="form-group">
-    <label for="des">Description:</label>
-    <input type="description" class="form-control" id="description">
+    <label for="desc-input">Description:</label>
+    <textarea id="desc-input" ng-model="org.description" class="form-control"></textarea>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <div class="form-group">
+    <label for="name-input">Drop Off Location:</label>
+    <input id="name-input" ng-model="org.location" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="desc-input">Drop Off Times:</label>
+    <textarea id="desc-input" ng-model="org.dropOff" class="form-control">
+    </textarea>
+  </div>
+  <button class="btn btn-success" ng-disabled="!okName(org.name)" ng-click="done()">
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Done
+  </button>
+
+>>>>>>> 7a4c9261518b94b525a5775d7ea98746108c8f59
 </form>
