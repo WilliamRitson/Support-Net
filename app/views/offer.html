@@ -1,1 +1,37 @@
-<p>This is the offer view.</p>
+<div class="offerInfo">
+   <img src="images/{{offer.category}}.jpg"/>
+   <span>{{offer.category}}</span>
+</div>
+
+<div class="offerInfo">
+   <span class="offerInfoTitle">Request from:</span> 
+   <span class="offerInfoText"><i>{{offer.requester}}</i></span>
+</div>
+
+<div class="offerInfo">
+   <span class="offerInfoTitle">Request description:</span> 
+   <span class="offerInfoText">{{matchingRequest.description}}</span>
+</div>
+
+<div class="offerInfo">
+   <span class="offerInfoTitle">Dropoff Locaiton:</span> 
+   <span class="offerInfoText">{{org.location}}</span>
+</div>
+
+<div class="offerInfo">
+   <span class="offerInfoTitle">Dropoff Times:</span> 
+   <span class="offerInfoText">{{org.dropOff}}</span>
+</div>
+
+<form>
+
+   <div class="form-group">
+      <label for="description">Offer description:</label>
+      <input id="description" ng-model="offer.description" class="form-control" placeholder="I have 3 worn out T-shirts I can spare.">
+   </div>
+
+   <button class="btn btn-success" ng-disabled="offer.description === ''" ng-click="updateOffer(offer)">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Done
+   </button>
+
+</form>
