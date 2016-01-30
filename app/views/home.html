@@ -10,7 +10,7 @@
             <div ng-repeat="request in requests">
                <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
                   <img src="images/{{request.category}}.jpg" class="category-image"/>
-                  <b>{{request.requester}}</b>
+                  <div class="orgTitle">{{request.requester}}</div>
                   <i>{{request.title}}</i>
                   <span class="o-r-distance">0.8 mi</span>
                   <i>{{request.timestamp | databaseDate}}</i>
@@ -38,7 +38,7 @@
             <div ng-repeat="offer in myOffers">
                <div class="request" data-toggle="collapse" data-target="#o-collapse-id-{{$index}}">
                   <img src="images/{{request.category}}.jpg" class="category-image"/>
-                  <b>{{offer.requester}}</b>
+                  <div class="orgTitle">{{offer.requester}}</div>
                   <i>{{offer.requestTitle}}</i>
                   <span class="o-r-distance">0.8 mi</span>
                   <i>{{offer.timestamp | databaseDate}}</i>
