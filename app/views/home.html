@@ -10,7 +10,7 @@
             <div ng-repeat="request in requests">
                <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
                   <img src="images/{{request.category}}.jpg" class="category-image"/>
-                  <div class="orgTitle">{{request.requester}}</div>
+                  <span class="orgTitle">{{request.requester}}</span><br/>
                   <i>{{request.title}}</i>
                   <span class="o-r-distance">0.8 mi</span>
                   <i>{{request.timestamp | databaseDate}}</i>
