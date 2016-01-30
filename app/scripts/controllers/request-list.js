@@ -8,10 +8,8 @@
  * Controller of the hackucscApp
  */
 angular.module('hackucscApp')
-  .controller('RequestListCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('RequestListCtrl', function ($scope, $routeParams, $firebaseObject, Ref) {
+    var id = $routeParams.id;
+    $scope.id = id;
+    $scope.org = $firebaseObject(Ref.child('organisation').child(id));
   });
