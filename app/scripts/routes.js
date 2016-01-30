@@ -57,7 +57,7 @@ angular.module('hackucscApp')
   // before trying to access that route
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/landing', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -94,7 +94,7 @@ angular.module('hackucscApp')
         templateUrl: 'views/request.html',
         controller: 'RequestCtrl'
       })
-      .otherwise({redirectTo: '/'});
+      .otherwise({redirectTo: '/landing'});
   }])
 
   /**
