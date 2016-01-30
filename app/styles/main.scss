@@ -99,6 +99,7 @@ body {
   box-shadow: 0px 0px 30px rgba(0,0,0,0.5);
 }
 
+
 .o-r-list-header{
   text-align:center;
   width:100%;
@@ -109,8 +110,18 @@ body {
   font-size:18px;
 }
 
+.o-r-list-contents{
+  height:350px;
+  overflow:scroll;
+  overflow-x:hidden;
+}
+
 .o-r-list{
   
+}
+
+.o-r-btn{
+  padding: 3px;
 }
 
 .request{
@@ -123,4 +134,12 @@ body {
 
 .request-info{
   padding: 0px 10px 0px 30px; 
+}
+
+.request-header{
+
+}
+
+.category-image{
+  
 }
