@@ -18,7 +18,7 @@ angular.module('hackucscApp')
           if (auth) {
             scope.user = $firebaseObject(Ref.child('users').child(auth.uid));
           } else {
-            scope.user = [];
+            scope.user = {};
           }
         };
         Ref.onAuth(loadOrgs);

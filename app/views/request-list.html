@@ -1,27 +1,29 @@
-<div ng-if="!org.name">There is no organisation with the name {{id}}</div>
-
+<div ng-if="!org.name">There is no organisation with the name {{id}} would you like to <a ng-href="#/edit-org/new">create it</a>?</div>
+<div ng-if="org.name">
 <h1>Requests</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Made At</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="request in requests">
-      <td><input type="text" ng-model="request.title" class="form-control" placeholder="Request for soup"></td>
-      <td>{{request.timestamp | databaseDate}}</td>
-      <td><select ng-options="category for category in categories" ng-model="request.category" class="form-control"></select></td>
-      <td><textarea ng-model="request.description" class="form-control" placeholder="We need 12 cans of soup by Wednesday"></textarea></td>
-      <td><button class="btn btn-danger" ng-click="deleteItem(request)">
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Request</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<button class="btn btn-default" ng-click="newItem()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Request</button>
-<button class="btn btn-success" ng-click="save()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save Changes</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Made At</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="request in requests">
+        <td><input type="text" ng-model="request.title" class="form-control" placeholder="Request for soup"></td>
+        <td>{{request.timestamp | databaseDate}}</td>
+        <td><select ng-options="category for category in categories" ng-model="request.category" class="form-control"></select></td>
+        <td><textarea ng-model="request.description" class="form-control" placeholder="We need 12 cans of soup by Wednesday"></textarea></td>
+        <td><button class="btn btn-danger" ng-click="deleteItem(request)">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Request</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-default" ng-click="newItem()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Request</button>
+  <button class="btn btn-success" ng-click="save()"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> Save Changes</button>
+  <button class="btn btn-primary" ng-click="done()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Done</button>
+</div>
