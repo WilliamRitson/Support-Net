@@ -74,6 +74,10 @@ angular.module('hackucscApp')
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
       })
+      .when('/edit-org', {
+        templateUrl: 'views/edit-org.html',
+        controller: 'EditOrgCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
