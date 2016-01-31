@@ -27,10 +27,15 @@ angular.module('hackucscApp')
         Ref.onAuth(loadOrgs);
         $timeout(loadOrgs, 100);
 
-        scope.notificationClicked = function (notification) {
+        scope.unread = function(notifications) {
+          return notifications.filter(function (notification) {
+            return !notification.read;
+          }).length;
+        };
 
+        scope.notificationClicked = function (notification) {
           window.swal(notification.title, notification.text);
-          notification.markRead(notification);
+          notifications.markRead(notification, scope.notifications);
         };
       }
     };

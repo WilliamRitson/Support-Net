@@ -27,28 +27,31 @@ angular.module('hackucscApp')
 
 		$scope.acceptOffer = function(offer) {
 			offer.accepted = true;
-			var request = $scope.orgRequests.find(function(request) {
-				return request.$id === offer.request;
-			});
+			//var request = $scope.orgRequests.find(function(request) {
+		  //	return request.$id === offer.request;
+			//});
 			notifications.notifyUser(offer.offerer, {
 				title: 'Offer Accepted',
 				icon: 'ok',
-				text: 'The offer to "' + offer.description + '" was acccepted! Please bring the donation to ' + $scope.org.location + '.'
+				text: 'Your offer to "' + offer.description + '" was acccepted! Please bring the donation to ' + $scope.org.location + '.'
 			});
-			offer.$save();
+			$scope.orgOffers.$save(offer);
 		};
 
 		$scope.closeRequest = function(request) {
-			var toDelete = $firebaseArray(Ref.child('offer').orderByChild('request').equalTo(request.$id));
-			toDelete.forEach(function(offer) {
-				if (!offer.accepted) {
-					notifications.notifyUser(offer.offerer, {
-						title: 'Request Closed',
-						icon: 'remove-circle',
-						text: 'The request titled ' + request.title + ' was closed before your offer was accepted.'
-					});
-					toDelete.$remove(offer);
-				}
+			$firebaseArray(Ref.child('offer').orderByChild('request').equalTo(request.$id)).$loaded().then(function (toDelete) {
+				toDelete.forEach(function(offer) {
+					console.log(offer);
+					if (!offer.accepted) {
+						notifications.notifyUser(offer.offerer, {
+							title: 'Request Closed',
+							icon: 'remove-circle',
+							text: 'The request titled ' + request.title + ' was closed before your offer was accepted.'
+						});
+						toDelete.$remove(offer);
+					}
+				});
+				$scope.orgRequests.$remove(request);
 			});
 		};
 
