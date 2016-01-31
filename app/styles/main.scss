@@ -37,8 +37,27 @@ body {
 
 .full-wrapper{
   min-height: 100%;
-  position: relative;
+  margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
 }
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+footer, .push {
+  box-model:border-box;
+	height:60px; /* '.push' must be the same height as 'footer' */
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.footer-logo {
+  line-height: 30px;
+  color: black;
+}
+
 
 .footer {
   background: rgba(0,0,0,0.4);
@@ -50,7 +69,7 @@ body {
 
 .infograph {
 	width: 100%;
-	
+
 }
 
 /* Custom page header */
@@ -87,7 +106,9 @@ body {
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
+  box-model: border-box;
+  height: 60px;
+  padding-top: 10px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
@@ -176,7 +197,7 @@ body {
 }
 
 .o-r-list{
-  
+
 }
 
 .o-r-btn{
@@ -188,12 +209,12 @@ body {
   padding: 3px 10px 3px 10px;
 }
 
-.request:hover { 
+.request:hover {
   box-shadow: inset 0px 0px 1px #000;
 }
 
 .request-info{
-  padding: 0px 10px 0px 30px; 
+  padding: 0px 10px 0px 30px;
 }
 
 .request-header{
@@ -201,7 +222,7 @@ body {
 }
 
 .category-image{
-  
+
 }
 
 .offerInfo{
