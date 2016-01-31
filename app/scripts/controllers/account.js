@@ -14,6 +14,13 @@ angular.module('hackucscApp')
     var profile = $firebaseObject(Ref.child('users/'+user.uid));
     profile.$bindTo($scope, 'profile');
 
+    $scope.saveProfile = function(profile) {
+      $scope.err = null;
+      // profile.orgs = [];
+      // profile$.save();
+      success('Info Saved');
+    };
+
     $scope.changePassword = function(oldPass, newPass, confirm) {
       $scope.err = null;
       if( !oldPass || !newPass ) {
