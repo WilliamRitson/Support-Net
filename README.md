@@ -15,7 +15,10 @@ Install `grunt` using commands:
 `npm install -g grunt-cli`
 `npm install`
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> aaddc8bcccf68e17a2cd9876da382da6c444b42e
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
