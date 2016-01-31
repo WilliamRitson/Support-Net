@@ -178,7 +178,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     wiredep: {
       options: {
-        cwd: ''
+      //  cwd: ''
       },
       app: {
         src: ['<%= yeoman.app %>/index.html'],
@@ -241,7 +241,7 @@ module.exports = function (grunt) {
         src: [
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          //'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.dist %>/styles/fonts/*'
         ]
       }
@@ -330,11 +330,11 @@ module.exports = function (grunt) {
     htmlmin: {
       dist: {
         options: {
-          collapseWhitespace: true,
+          //collapseWhitespace: true,
           conservativeCollapse: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
+          //collapseBooleanAttributes: true,
+          //removeCommentsFromCDATA: true,
+          //removeOptionalTags: true
         },
         files: [{
           expand: true,
@@ -473,8 +473,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'newer:jshint',
-    'test',
+    //'newer:jshint',
+    //'test',
     'build'
   ]);
 };

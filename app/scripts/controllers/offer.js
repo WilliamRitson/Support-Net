@@ -10,21 +10,6 @@
 angular.module('hackucscApp')
   .controller('OfferCtrl', function ($scope, $routeParams, $firebaseObject, $firebaseArray, Ref, categories, $location) {
 
-      /*$scope.offers.$add({
-         offerer: $scope.user.$id,
-         request: request.$id,
-         requester: request.requester,
-         requestTitle: request.title,
-         requestDescription : request.description,
-         timestamp: (new Date()).toString(),
-         description: '',
-         category: request.category,
-         accepted: false
-      }).then(function(ref){
-         $firebaseObject(ref).$loaded().then(function(offer){
-            $location.url("/offer/" + offer.$id);
-         })
-      });*/
 
       console.log($routeParams.offerid);
       console.log($routeParams.requestid);      
@@ -61,36 +46,6 @@ angular.module('hackucscApp')
       }
 
       $scope.offers = $firebaseArray(Ref.child("offer"));
-
-      /*
-      $scope.matchingRequest = $firebaseObject(Ref.child("request").child($routeParams.id))
-      $scope.matchingRequest.$loaded().then(function(request){
-         console.log($scope.user.$id);
-         console.log(request);
-         $scope.org = $firebaseObject(Ref.child("organisation").child(request.requester));
-
-         $scope.currentOffers = $firebaseArray(Ref.child('offer').orderByChild("offerer").equalTo($scope.user.$id));
-         $scope.currentOffers.$loaded().then(function(currentOffers) {
-            console.log(currentOffers);
-
-            function isMatching(thisOffer){
-               return (thisOffer.request === request.$id);
-            }
-
-            $scope.offer = currentOffers.find(isMatching) || {
-               offerer: $scope.user.$id,
-               request: request.$id,
-               requester: request.requester,
-               requestTitle: request.title,
-               requestDescription : request.description,
-               timestamp: (new Date()).toString(),
-               description: '',
-               category: request.category,
-               accepted: false
-            };
-            console.log($scope.offer);
-         });
-      });*/
 
       $scope.updateOffer = function(){
          if($routeParams.offerid === "new"){
