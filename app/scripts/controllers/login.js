@@ -8,6 +8,7 @@
  */
 angular.module('hackucscApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
+    $scope.createMode = true;
     $scope.oauthLogin = function(provider) {
       $scope.err = null;
       Auth.$authWithOAuthPopup(provider, {rememberMe: true}).then(redirect, showError);
@@ -55,7 +56,7 @@ angular.module('hackucscApp')
             }
           });
         });
-        ref.$add({"orgs": []});
+        ref.$add({'orgs': []});
         return def.promise;
       }
     };
@@ -71,8 +72,6 @@ angular.module('hackucscApp')
       return f + str.substr(1);
     }
 
-
-
     function redirect() {
       $location.path('/home');
     }
@@ -84,6 +83,5 @@ angular.module('hackucscApp')
     function showError(err) {
       $scope.err = err;
     }
-
 
   });
