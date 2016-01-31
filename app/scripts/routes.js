@@ -90,13 +90,17 @@ angular.module('hackucscApp')
         templateUrl: 'views/request-list.html',
         controller: 'RequestListCtrl'
       })
-      .when('/request', {
-        templateUrl: 'views/request.html',
-        controller: 'RequestCtrl'
+      .when('/edit-request/:orgId/:requestId', {
+        templateUrl: 'views/edit-request.html',
+        controller: 'EditRequestCtrl'
       })
       .when('/organisation/:id', {
         templateUrl: 'views/organisation.html',
         controller: 'OrganisationCtrl'
+      })
+      .when('/edit-request', {
+        templateUrl: 'views/edit-request.html',
+        controller: 'EditRequestCtrl'
       })
       .otherwise({redirectTo: '/landing'});
   }])

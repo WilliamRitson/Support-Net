@@ -7,7 +7,7 @@
  * # navigationBar
  */
 angular.module('hackucscApp')
-  .directive('navigationBar', function (  Ref, $firebaseObject, $timeout, Auth, $q, $location) {
+  .directive('navigationBar', function (  Ref, $firebaseObject, $timeout, Auth, $q, $location, notifications) {
     return {
       templateUrl: 'views/navigation-bar.html',
       restrict: 'E',
@@ -17,6 +17,7 @@ angular.module('hackucscApp')
           var auth = Ref.getAuth();
           if (auth) {
             scope.user = $firebaseObject(Ref.child('users').child(auth.uid));
+            scope.notifications = notifications.getUserNotifcations(scope.user);
             scope.showNav = true;
           } else {
             scope.user = {};
@@ -51,6 +52,12 @@ angular.module('hackucscApp')
 
         Ref.onAuth(loadOrgs);
         $timeout(loadOrgs, 100);
+
+        scope.notificationClicked = function (notification) {
+
+          window.swal(notification.title, notification.text);
+          notification.markRead(notification);
+        };
       }
 
 

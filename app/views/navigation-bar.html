@@ -22,6 +22,7 @@
         <a ng-hide-auth="" href="#/login">Log in</a>
         <a ng-show-auth="" href="#/account">Account</a>
 
+
         <li class="dropdown">
           <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organisations <span class="caret"></span></a>
 
@@ -33,7 +34,19 @@
           </ul>
         </li>
 
+        <li class="dropdown">
+          <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-bell" aria-hidden="true"/> Notifications <span class="badge" ng-hide="notifications.length === 0">{{notifications.length}}</span></a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="notification in notifications"><a ng-click="notificationClicked(notification)">
+              <span ng-if="notification.icon" class="glyphicon" ng-class="'glyphicon-' + notification.icon" aria-hidden="true"/>  {{notification.title}}
+            </a></li>
+          </ul>
+        </li>
+
+      </li>
       </ul>
+
     </div>
 
   </div>

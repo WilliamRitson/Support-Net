@@ -18,7 +18,7 @@ angular.module('hackucscApp')
         $scope.org = {
           name: '',
           description: '',
-          dropOff: 'Enter a time range, eg Mon-Fri from 8am to 6pm'
+          dropOff: ''
         };
       } else {
         $scope.org = $firebaseObject(Ref.child('organisation').child(id));

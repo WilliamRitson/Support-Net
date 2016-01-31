@@ -4,9 +4,9 @@
          <div class="o-r-list-header" style="background-color:#e9e9b0">
             Request list
          </div>
-         
+
          <div class="o-r-list-contents">
-            
+
             <div ng-repeat="request in requests">
                <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
                   <img src="images/{{request.category}}.jpg" class="category-image"/>
@@ -37,13 +37,21 @@
 
             <div ng-repeat="offer in myOffers">
                <div class="request" data-toggle="collapse" data-target="#o-collapse-id-{{$index}}">
-                  <img src="images/{{request.category}}.jpg" class="category-image"/>
-                  <div class="orgTitle">{{offer.requester}}</div>
-                  <i>{{offer.requestTitle}}</i>
-                  <span class="o-r-distance">0.8 mi</span>
-                  <i>{{offer.timestamp | databaseDate}}</i>
+                  <div class ="row">
+                     <div class="col-xs-8">
+                        <img src="images/{{request.category}}.jpg" class="category-image"/>
+                        <div class="orgTitle">{{offer.requester}}</div>
+                        <i>{{offer.requestTitle}}</i>
+                        <span class="o-r-distance">0.8 mi</span>
+                        <i>{{offer.timestamp | databaseDate}}</i>
+                     </div>
+                     <div class="col-xs-4" style="text-align:right">
+                        <span class="status">Status: <span class="glyphicon glyphicon-time">Pending</span></span>
+                     </div>
+                  </div>
+
                </div>
-               <div id="o-collapse-id-{{$index}}" class="collapse request-info">            
+               <div id="o-collapse-id-{{$index}}" class="collapse request-info">
                   <div class="offerDetailHeader">Original Request:</div>
                   <div class="offerDetailText">{{offer.requestDescription}}</div>
                   <div class="offerDetailHeader">Your Offer:</div>

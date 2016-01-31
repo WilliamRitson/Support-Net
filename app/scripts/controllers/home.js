@@ -37,7 +37,8 @@ angular.module('hackucscApp')
    };
 
    $scope.deleteOffer = function(offer){
-
+      console.log(offer);
+      $scope.offers.$remove(offer);
    };
 
 });
