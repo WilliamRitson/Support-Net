@@ -189,10 +189,27 @@ body {
 }
 
 .status{
-  height:80%;
-  margin-top:20%;
-  font-size:20px;
+  font-size:16px;
   color:rgb(150,150,150);
   height:100%;
   padding-top:auto;
+}
+
+.status-icon-pending{
+  color:blue;
+}
+
+.status-text-pending{
+  font-size:14px;
+  color:blue;
+  height:100%;
+  padding-top:auto;
+}
+
+.status-icon-accepted{
+  color:green;
+}
+
+.status-text-accepted{
+  color:green;
 }

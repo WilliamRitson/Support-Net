@@ -38,6 +38,7 @@
             <div ng-repeat="offer in myOffers">
                <div class="request" data-toggle="collapse" data-target="#o-collapse-id-{{$index}}">
                   <div class ="row">
+                     
                      <div class="col-xs-8">
                         <img src="images/{{request.category}}.jpg" class="category-image"/>
                         <div class="orgTitle">{{offer.requester}}</div>
@@ -45,12 +46,18 @@
                         <span class="o-r-distance">0.8 mi</span>
                         <i>{{offer.timestamp | databaseDate}}</i>
                      </div>
+
                      <div class="col-xs-4" style="text-align:right">
-                        <span class="status">Status: <span class="glyphicon glyphicon-time">Pending</span></span>
+                        <div class="status">Status:</div> 
+                        <span class="glyphicon glyphicon-time status-icon-pending" ng-if="!offer.accepted"></span>
+                           <span class="status-text-pending" ng-if="!offer.accepted"> Pending</span>
+                        <span class="glyphicon glyphicon-ok-circle status-icon-accepted" ng-if="offer.accepted"></span>
+                        <span class="status-text-accepted" ng-if="offer.accepted"> Accepted</span>
                      </div>
                   </div>
 
                </div>
+
                <div id="o-collapse-id-{{$index}}" class="collapse request-info">
                   <div class="offerDetailHeader">Original Request:</div>
                   <div class="offerDetailText">{{offer.requestDescription}}</div>
