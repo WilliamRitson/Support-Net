@@ -20,6 +20,10 @@ body {
   background-color: #fa9c20;
 }
 
+.non-landing-wrapper{
+  padding:50px 40px 0px 40px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -38,12 +42,10 @@ body {
 
 .footer {
   background: rgba(0,0,0,0.4);
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:60px; 
-    padding-bottom: 10px;
-    overflow: none;
+}
+
+.logo-container{
+  margin:15px 10px 0px 10px;
 }
 
 .infograph {

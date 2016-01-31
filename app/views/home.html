@@ -1,80 +1,82 @@
-<div class="row">
-   <div class="col-sm-6">
-      <div class="o-r-list-cont">
-         <div class="o-r-list-header" style="background-color:#e9e9b0">
-            Request list
-         </div>
-
-         <div class="o-r-list-contents">
-
-            <div ng-repeat="request in requests">
-               <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
-                  <img ng-src="images/{{request.category}}.jpg" class="category-image"/>
-                  <span class="orgTitle">{{request.requester}}</span><br/>
-                  <i>{{request.title}}</i>
-                  <span class="o-r-distance">0.8 mi</span>
-                  <i>{{request.timestamp | databaseDate}}</i>
-               </div>
-               <div id="collapse-id-{{$index}}" class="collapse request-info">
-                  {{request.description}}
-                  <br/>
-                  <div style="text-align:right">
-                     <button type="button" ng-click="newOffer(request)" class="btn btn-success o-r-btn">
-                        <span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Make Offer
-                      </button>
-                  </div>
-               </div>
+<div class="non-landing-wrapper">
+   <div class="row">
+      <div class="col-sm-6">
+         <div class="o-r-list-cont">
+            <div class="o-r-list-header" style="background-color:#e9e9b0">
+               Request list
             </div>
 
+            <div class="o-r-list-contents">
+
+               <div ng-repeat="request in requests">
+                  <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
+                     <img ng-src="images/{{request.category}}.jpg" class="category-image"/>
+                     <span class="orgTitle">{{request.requester}}</span><br/>
+                     <i>{{request.title}}</i>
+                     <span class="o-r-distance">0.8 mi</span>
+                     <i>{{request.timestamp | databaseDate}}</i>
+                  </div>
+                  <div id="collapse-id-{{$index}}" class="collapse request-info">
+                     {{request.description}}
+                     <br/>
+                     <div style="text-align:right">
+                        <button type="button" ng-click="newOffer(request)" class="btn btn-success o-r-btn">
+                           <span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Make Offer
+                         </button>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
          </div>
       </div>
-   </div>
-   <div class="col-sm-6">
-      <div class="o-r-list-cont">
-         <div class="o-r-list-header" style="background-color:#b0b0e9">
-            Offer List
-         </div>
-         <div class="o-r-list-contents">
-
-            <div ng-repeat="offer in myOffers">
-               <div class="request" data-toggle="collapse" data-target="#o-collapse-id-{{$index}}">
-                  <div class ="row">
-                     
-                     <div class="col-xs-8">
-                        <img ng-src="images/{{request.category}}.jpg" class="category-image"/>
-                        <div class="orgTitle">{{offer.requester}}</div>
-                        <i>{{offer.requestTitle}}</i>
-                        <span class="o-r-distance">0.8 mi</span>
-                        <i>{{offer.timestamp | databaseDate}}</i>
-                     </div>
-
-                     <div class="col-xs-4" style="text-align:right">
-                        <div class="status">Status:</div> 
-                        <span class="glyphicon glyphicon-time status-icon-pending" ng-if="!offer.accepted"></span>
-                           <span class="status-text-pending" ng-if="!offer.accepted"> Pending</span>
-                        <span class="glyphicon glyphicon-ok-circle status-icon-accepted" ng-if="offer.accepted"></span>
-                        <span class="status-text-accepted" ng-if="offer.accepted"> Accepted</span>
-                     </div>
-                  </div>
-               </div>
-
-               <div id="o-collapse-id-{{$index}}" class="collapse request-info">
-                  <div class="offerDetailHeader">Original Request:</div>
-                  <div class="offerDetailText">{{offer.requestDescription}}</div>
-                  <div class="offerDetailHeader">Your Offer:</div>
-                  <div class="offerDetailText">{{offer.description}}</div>
-                  <br/>
-                  <div style="text-align:right">
-                     <button type="button" ng-click="editOffer(offer)" class="btn btn-success o-r-btn">
-                        <span  class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit Offer
-                     </button>
-                     <button type="button" ng-click="deleteOffer(offer)" class="btn btn-danger o-r-btn">
-                        <span  class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Offer
-                     </button>
-                  </div>
-               </div>
+      <div class="col-sm-6">
+         <div class="o-r-list-cont">
+            <div class="o-r-list-header" style="background-color:#b0b0e9">
+               Offer List
             </div>
+            <div class="o-r-list-contents">
 
+               <div ng-repeat="offer in myOffers">
+                  <div class="request" data-toggle="collapse" data-target="#o-collapse-id-{{$index}}">
+                     <div class ="row">
+                        
+                        <div class="col-xs-8">
+                           <img ng-src="images/{{request.category}}.jpg" class="category-image"/>
+                           <div class="orgTitle">{{offer.requester}}</div>
+                           <i>{{offer.requestTitle}}</i>
+                           <span class="o-r-distance">0.8 mi</span>
+                           <i>{{offer.timestamp | databaseDate}}</i>
+                        </div>
+
+                        <div class="col-xs-4" style="text-align:right">
+                           <div class="status">Status:</div> 
+                           <span class="glyphicon glyphicon-time status-icon-pending" ng-if="!offer.accepted"></span>
+                              <span class="status-text-pending" ng-if="!offer.accepted"> Pending</span>
+                           <span class="glyphicon glyphicon-ok-circle status-icon-accepted" ng-if="offer.accepted"></span>
+                           <span class="status-text-accepted" ng-if="offer.accepted"> Accepted</span>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div id="o-collapse-id-{{$index}}" class="collapse request-info">
+                     <div class="offerDetailHeader">Original Request:</div>
+                     <div class="offerDetailText">{{offer.requestDescription}}</div>
+                     <div class="offerDetailHeader">Your Offer:</div>
+                     <div class="offerDetailText">{{offer.description}}</div>
+                     <br/>
+                     <div style="text-align:right">
+                        <button type="button" ng-click="editOffer(offer)" class="btn btn-success o-r-btn">
+                           <span  class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit Offer
+                        </button>
+                        <button type="button" ng-click="deleteOffer(offer)" class="btn btn-danger o-r-btn">
+                           <span  class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Offer
+                        </button>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
          </div>
       </div>
    </div>
