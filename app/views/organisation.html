@@ -10,10 +10,12 @@
 <div class="col-sm-6">
   <div class="o-r-list-cont">
     <div class="o-r-list-header" style="background-color:#e9e9b0">
-      {{org.name}}'s Requests -
+      {{org.name}}'s Requests
+      <!--
       <a ng-href="#/request-list/{{id}}">
         Make or Edit Request
       </a>
+      -->
     </div>
 
     <div class="o-r-list-contents">
@@ -30,12 +32,12 @@
           {{request.description}}
           <br/>
           <div style="text-align:right">
-            <a ng-href="#/request-list/{{id}}">
-              <button type="button" ng-click="editOffer(offer)" class="btn btn-success o-r-btn">
+            <a ng-href="#/edit-request/{{id}}/{{getId(request)}}">
+              <button type="button" class="btn btn-success o-r-btn">
                   <span class="glyphicon glyphicon-wrench" aria-hidden="true"/> Edit Request
               </button>
             </a>
-             <button type="button" ng-click="deleteOffer(offer)" class="btn btn-warning o-r-btn">
+             <button type="button" ng-click="closeRequest(request)" class="btn btn-warning o-r-btn">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"/> Close Request
              </button>
           </div>
@@ -46,7 +48,13 @@
         -->
         </div>
       </div>
-
+      <div style="text-align:center">
+        <a  ng-href="#/edit-request/{{id}}/new">
+          <button type="button" ng-click="newRequest(offer)" class="btn btn-primary">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"/> New Request
+         </button>
+        </a>
+    </div>
     </div>
   </div>
 </div>
