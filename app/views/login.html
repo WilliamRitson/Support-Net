@@ -4,21 +4,21 @@
   <fieldset>
     <legend>Oauth</legend>
     <p>
-      <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</button>
+      <button  class="btn btn-primary" ng-click="oauthLogin('google')">Login With Google</button>
     </p>
   </fieldset>
 
   <form role="form">
     <p class="form-group">
-      <label for="loginEmail">email</label>
+      <label for="loginEmail">Email</label>
       <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
     </p>
     <p class="form-group">
-      <label for="loginPass">password</label>
+      <label for="loginPass">Password</label>
       <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
     </p>
     <p class="form-group" ng-cloak ng-show="createMode">
-      <label for="loginConfirm">confirm password</label>
+      <label for="loginConfirm">Confirm password</label>
       <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
     </p>
 
