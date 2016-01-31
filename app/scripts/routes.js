@@ -82,7 +82,7 @@ angular.module('hackucscApp')
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       })
-      .when('/offer/:id', {
+      .when('/offer/:offerid/:requestid', {
         templateUrl: 'views/offer.html',
         controller: 'OfferCtrl'
       })

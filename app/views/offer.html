@@ -5,12 +5,12 @@
 
 <div class="offerInfo">
    <span class="offerInfoTitle">Request from:</span> 
-   <span class="offerInfoText"><i>{{offer.requester}}</i></span>
+   <span class="offerInfoText"><i>{{org.$id}}</i></span>
 </div>
 
 <div class="offerInfo">
    <span class="offerInfoTitle">Request description:</span> 
-   <span class="offerInfoText">{{matchingRequest.description}}</span>
+   <span class="offerInfoText">{{request.description}}</span>
 </div>
 
 <div class="offerInfo">
@@ -30,7 +30,7 @@
       <input id="description" ng-model="offer.description" class="form-control" placeholder="I have 3 worn out T-shirts I can spare.">
    </div>
 
-   <button class="btn btn-success" ng-disabled="offer.description === ''" ng-click="updateOffer(offer)">
+   <button class="btn btn-success" ng-disabled="offer.description === ''" ng-click="updateOffer()">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Done
    </button>
 

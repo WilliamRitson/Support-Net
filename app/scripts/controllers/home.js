@@ -27,28 +27,16 @@ angular.module('hackucscApp')
 
    $scope.newOffer = function(request) {
       console.log($scope.user);
-      $scope.offers.$add({
-         offerer: $scope.user.$id,
-         request: request.$id,
-         requester: request.requester,
-         requestTitle: request.title,
-         requestDescription : request.description,
-         timestamp: (new Date()).toString(),
-         description: '',
-         category: request.category,
-         accepted: false
-      }).then(function(ref){
-         $firebaseObject(ref).$loaded().then(function(offer){
-            $location.url("/offer/" + offer.$id);
-         })
-      });
-   };
 
-   $scope.editOffer = function(offer){
+      $location.url("/offer/new/" + request.$id);
 
    };
 
    $scope.editOffer = function(offer){
+      $location.url("/offer/" + offer.$id + '/' + offer.request);
+   };
+
+   $scope.deleteOffer = function(offer){
 
    };
 
