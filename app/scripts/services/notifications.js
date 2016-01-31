@@ -21,6 +21,22 @@ angular.module('hackucscApp')
 				read: false
 			});
 		};
+		notifications.notifyOrg = function (organisation, notification) {
+			var that = this;
+
+			if (typeof organisation === 'string') {
+				$firebaseObject(Ref.child('organisation').child(organisation)).$loaded.then(function (organisation) {
+					organisation.users.forEach(function (user) {
+						that.notifyUser(user, notification);
+					});
+				});
+			} else {
+				organisation.users.forEach(function (user) {
+					that.notifyUser(user, notification);
+				});
+			}
+
+		};
     notifications.getUserNotifcations = function(user) {
       return $firebaseArray(Ref.child('notification').orderByChild('recipient').equalTo(user.$id));
     };
@@ -29,9 +45,9 @@ angular.module('hackucscApp')
         user = $firebaseObject(Ref.child('users').child(auth.uid));
 			return this.getUserNotifcations(user);
 		};
-		notifications.markRead = function (notification) {
+		notifications.markRead = function (notification, list) {
 			notification.read = true;
-			notification.$save();
+			list.$save(notification);
 			//this.getCurrentUserNotifications()
 		};
 		return notifications;
