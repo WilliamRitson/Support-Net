@@ -23,6 +23,16 @@
         <div id="collapse-id-{{$index}}" class="collapse request-info">
           {{request.description}}
           <br/>
+          <div style="text-align:right">
+            <a ng-href="#/request-list/{{id}}">
+              <button type="button" ng-click="editOffer(offer)" class="btn btn-success o-r-btn">
+                  <span class="glyphicon glyphicon-wrench" aria-hidden="true"/> Edit Request
+              </button>
+            </a>
+             <button type="button" ng-click="deleteOffer(offer)" class="btn btn-warning o-r-btn">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"/> Close Request
+             </button>
+          </div>
           <!--
           <div style="text-align:right">
               <button type="button" class="btn btn-danger o-r-btn">Remove Offer</button>
@@ -51,8 +61,8 @@
           {{offer.description}}
           <br/>
           <div style="text-align:right">
-            <button type="button" class="btn btn-success o-r-btn" ng-click="acceptOffer(offer)" ng-if="!offer.accepted">
-              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept Offer
+            <button type="button" class="btn btn-success o-r-btn" ng-click="acceptOffer(offer)" ng-disabled="offer.accepted">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span ng-if="!offer.accepted">Accept Offer</span><span ng-if="offer.accepted">Accepted</span>
             </button>
             <!--
             <button type="button" class="btn btn-warning o-r-btn" ng-click="rejectOffer(offer)">
