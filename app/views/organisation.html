@@ -22,7 +22,7 @@
 
       <div ng-repeat="request in orgRequests">
         <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
-          <img src="images/{{request.category}}.jpg" class="category-image" />
+          <img ng-src="images/{{request.category}}.jpg" class="category-image" />
           <b>{{request.requester}}</b>
           <i>{{request.title}}</i>
           <span class="o-r-distance">0.8 mi</span>
@@ -34,12 +34,12 @@
           <div style="text-align:right">
             <a ng-href="#/edit-request/{{id}}/{{getId(request)}}">
               <button type="button" class="btn btn-success o-r-btn">
-                  <span class="glyphicon glyphicon-wrench" aria-hidden="true"/> Edit Request
+                <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit Request
               </button>
             </a>
-             <button type="button" ng-click="closeRequest(request)" class="btn btn-warning o-r-btn">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"/> Close Request
-             </button>
+            <button type="button" ng-click="closeRequest(request)" class="btn btn-warning o-r-btn">
+              <span  class="glyphicon glyphicon-remove" aria-hidden="true" ></span> Close Request
+            </button>
           </div>
           <!--
           <div style="text-align:right">
@@ -49,12 +49,12 @@
         </div>
       </div>
       <div style="text-align:center">
-        <a  ng-href="#/edit-request/{{id}}/new">
+        <a ng-href="#/edit-request/{{id}}/new">
           <button type="button" ng-click="newRequest(offer)" class="btn btn-primary">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"/> New Request
-         </button>
+            <span  class="glyphicon glyphicon-plus" aria-hidden="true" ></span> New Request
+          </button>
         </a>
-    </div>
+      </div>
     </div>
   </div>
 </div>
@@ -88,6 +88,5 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 <br>

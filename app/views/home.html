@@ -9,7 +9,7 @@
 
             <div ng-repeat="request in requests">
                <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
-                  <img src="images/{{request.category}}.jpg" class="category-image"/>
+                  <img ng-src="images/{{request.category}}.jpg" class="category-image"/>
                   <span class="orgTitle">{{request.requester}}</span><br/>
                   <i>{{request.title}}</i>
                   <span class="o-r-distance">0.8 mi</span>
@@ -20,7 +20,8 @@
                   <br/>
                   <div style="text-align:right">
                      <button type="button" ng-click="newOffer(request)" class="btn btn-success o-r-btn">
-                        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"/> Make Offer</button>
+                        <span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Make Offer
+                      </button>
                   </div>
                </div>
             </div>
@@ -37,7 +38,7 @@
 
             <div ng-repeat="offer in myOffers">
                <div class="request" data-toggle="collapse" data-target="#o-collapse-id-{{$index}}">
-                  <img src="images/{{request.category}}.jpg" class="category-image"/>
+                  <img ng-src="images/{{request.category}}.jpg" class="category-image"/>
                   <div class="orgTitle">{{offer.requester}}</div>
                   <i>{{offer.requestTitle}}</i>
                   <span class="o-r-distance">0.8 mi</span>
@@ -51,10 +52,10 @@
                   <br/>
                   <div style="text-align:right">
                      <button type="button" ng-click="editOffer(offer)" class="btn btn-success o-r-btn">
-                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"/> Edit Offer
+                        <span  class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit Offer
                      </button>
                      <button type="button" ng-click="deleteOffer(offer)" class="btn btn-danger o-r-btn">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"/> Delete Offer
+                        <span  class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete Offer
                      </button>
                   </div>
                </div>
