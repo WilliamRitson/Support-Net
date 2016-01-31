@@ -1,4 +1,5 @@
 <div class="non-landing-wrapper">
+  
   <div class="pageLocationTitle">Homepage</div>
   <div class="orgName">
     {{org.name}}
@@ -10,7 +11,7 @@
 
   <div class="col-sm-6">
     <div class="o-r-list-cont">
-      <div class="o-r-list-header" style="background-color:#e9e9b0">
+      <div class="o-r-list-header" style="background-color:#c97f7f">
         {{org.name}}'s Requests
         <!--
         <a ng-href="#/request-list/{{id}}">
@@ -25,9 +26,11 @@
           <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
             <img ng-src="images/{{request.category}}.jpg" class="category-image" />
             <b>{{request.requester}}</b>
-            <i>{{request.title}}</i>
-            <span class="o-r-distance">0.8 mi</span>
-            <i>{{request.timestamp | databaseDate}}</i>
+            <div>
+              <i>{{request.title}}</i>
+              <span class="o-r-distance">0.8 mi</span>
+              <i>{{request.timestamp | databaseDate}}</i>
+            </div>
           </div>
           <div id="collapse-id-{{$index}}" class="collapse request-info">
             {{request.description}}
@@ -61,7 +64,7 @@
   </div>
   <div class="col-sm-6">
     <div class="o-r-list-cont">
-      <div class="o-r-list-header" style="background-color:#b0b0e9">
+      <div class="o-r-list-header" style="background-color:#7fc9c9">
         Offers
       </div>
       <div class="o-r-list-contents">
