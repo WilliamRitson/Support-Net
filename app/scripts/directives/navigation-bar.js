@@ -42,7 +42,7 @@ angular.module('hackucscApp')
         };
 
       function redirect() {
-        $location.path('/account');
+        $location.path('/home');
       }
 
       function showError(err) {
