@@ -40,7 +40,7 @@ angular.module('hackucscApp')
             return Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true});
           })
           .then(createProfile)
-          .then(redirect, showError);
+          .then(redirectProfile, showError);
       }
 
       function createProfile(user) {
@@ -73,6 +73,10 @@ angular.module('hackucscApp')
   
 
     function redirect() {
+      $location.path('/home');
+    }
+
+    function redirectProfile() {
       $location.path('/account');
     }
 
