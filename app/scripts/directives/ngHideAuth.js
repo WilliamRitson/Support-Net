@@ -21,6 +21,7 @@ angular.module('hackucscApp')
           $timeout(function () {
             el.toggleClass('ng-cloak', !!Auth.$getAuth());
           }, 0);
+          
         }
 
         Auth.$onAuth(update);

@@ -1,6 +1,6 @@
-<div class="navbar navbar-default" role="navigation" ng-show="showNav">
-  <div class="container">
-    <div class="navbar-header">
+<div class="navbar navbar-default" role="navigation" >
+  <div class="container" ng-show="showNav" >
+    <div class="navbar-header" >
 
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -22,11 +22,14 @@
         <li class="active"><a href="#/home">Home</a></li>
         <!-- //angularfire -->
         <li>
+
         <a ng-hide-auth="" href="#/login">Log in</a>
         <a ng-show-auth="" href="#/account">Account</a>
 
+
         <li class="dropdown">
           <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organisations <span class="caret"></span></a>
+
           <ul class="dropdown-menu">
             <li ng-repeat="organisation in user.orgs"><a ng-href="#/organisation/{{organisation}}">{{organisation}}</a></li>
             <li><a href="#/edit-org/new">
@@ -34,9 +37,44 @@
             </li>
           </ul>
         </li>
-      </li>
 
+        <li class="dropdown">
+          <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-bell" aria-hidden="true"/> Notifications <span class="badge" ng-hide="unread(notifications) === 0">{{unread(notifications)}}</span></a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="notification in notifications"><a ng-click="notificationClicked(notification)" ng-if="!notification.read">
+              <span ng-if="notification.icon" class="glyphicon" ng-class="'glyphicon-' + notification.icon" aria-hidden="true"/>  {{notification.title}}
+            </a></li>
+          </ul>
+        </li>
+
+      </li>
       </ul>
+
     </div>
+
   </div>
+
+  <div class="container" ng-show="!showNav">
+    <div class="collapse navbar-collapse" id="navbar-login" >
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/">hackucsc</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/login">Register</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+
+        <div class="form-group">
+          <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" placeholder="Username"/>
+        </div>
+          <div class="form-group">
+            <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" placeholder="Password"/>
+          </div>
+        <button class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
+        <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</buttom>
+      </form>
+    </div>  
+  </div>  
+
 </div>
