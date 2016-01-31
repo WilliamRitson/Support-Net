@@ -54,7 +54,7 @@ angular.module('hackucscApp')
         $timeout(loadOrgs, 100);
 
         scope.unread = function(notifications) {
-          return notifications.filter(function (notification) {
+          return (notifications || []).filter(function (notification) {
             return !notification.read;
           }).length;
         };
