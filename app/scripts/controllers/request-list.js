@@ -8,28 +8,15 @@
  * Controller of the hackucscApp
  */
 angular.module('hackucscApp')
-	.controller('RequestListCtrl', function($scope, $routeParams, $firebaseObject, $firebaseArray, Ref, categories) {
+	.controller('RequestListCtrl', function($scope, $routeParams, $firebaseObject, $firebaseArray, $location, Ref, categories) {
 		var id = $routeParams.id;
 		$scope.id = id;
 		$scope.categories = categories.names;
-		var query = Ref.child('request').orderByChild('requester').equalTo(id).limitToLast(10),
-			requests = $firebaseArray(query);
 		$scope.org = $firebaseObject(Ref.child('organisation').child(id));
-		console.log(requests);
+
+    var query = Ref.child('request').orderByChild('requester').equalTo(id),
+			requests = $firebaseArray(query);
 		$scope.requests = requests;
-
-		/*
-		Ref.child('request').orderByChild('requester').equalTo(id).on('value', function(data) {
-			$scope.requests = [];
-			data.forEach(function(d) {
-				var next = d.val();
-				next.ref = d.ref();
-				$scope.requests.push(next);
-			});
-		});
-    */
-
-
 
 		$scope.newItem = function() {
 			requests.$add({
@@ -54,5 +41,10 @@ angular.module('hackucscApp')
 			requests.forEach(function(req) {
         requests.$save(req);
 			});
+		};
+
+		$scope.done = function () {
+			$scope.save();
+			$location.url('/organisation/' + $scope.id);
 		};
 	});

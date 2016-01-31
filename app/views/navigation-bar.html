@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="#/">hackucsc</a>
+      <a class="navbar-brand" href="#/">SupportNet</a>
     </div>
 
     <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -17,15 +17,14 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#/home">Home</a></li>
         <!-- //angularfire -->
-        <li><a ng-href="#/chat">chat</a></li>
         <li>
-        <a ng-hide-auth="" href="#/login">log in</a>
-        <a ng-show-auth="" href="#/account">account</a>
+        <a ng-hide-auth="" href="#/login">Log in</a>
+        <a ng-show-auth="" href="#/account">Account</a>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organisations <span class="caret"></span></a>
+          <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Organisations <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li ng-repeat="organisation in user.orgs"><a ng-href="#/request-list/{{organisation}}">{{organisation}}</a></li>
+            <li ng-repeat="organisation in user.orgs"><a ng-href="#/organisation/{{organisation}}">{{organisation}}</a></li>
             <li><a href="#/edit-org/new">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Organisation</a>
             </li>

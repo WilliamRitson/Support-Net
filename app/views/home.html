@@ -10,16 +10,17 @@
             <div ng-repeat="request in requests">
                <div class="request" data-toggle="collapse" data-target="#collapse-id-{{$index}}">
                   <img src="images/{{request.category}}.jpg" class="category-image"/>
-                  <b>{{request.requester}}</b>
+                  <span class="orgTitle">{{request.requester}}</span><br/>
                   <i>{{request.title}}</i>
                   <span class="o-r-distance">0.8 mi</span>
-                  <i>{{request.timestamp | date:'shortDate'}}</i>
+                  <i>{{request.timestamp | databaseDate}}</i>
                </div>
                <div id="collapse-id-{{$index}}" class="collapse request-info">
                   {{request.description}}
                   <br/>
                   <div style="text-align:right">
-                     <a ng-href="#/offer/{{request.$id}}"><button type="button" class="btn btn-success o-r-btn">Make Offer</button></a>
+                     <button type="button" ng-click="newOffer(request)" class="btn btn-success o-r-btn">
+                        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"/> Make Offer</button>
                   </div>
                </div>
             </div>
@@ -33,9 +34,35 @@
             Offer List
          </div>
          <div class="o-r-list-contents">
+
+            <div ng-repeat="offer in myOffers">
+               <div class="request" data-toggle="collapse" data-target="#o-collapse-id-{{$index}}">
+                  <img src="images/{{request.category}}.jpg" class="category-image"/>
+                  <div class="orgTitle">{{offer.requester}}</div>
+                  <i>{{offer.requestTitle}}</i>
+                  <span class="o-r-distance">0.8 mi</span>
+                  <i>{{offer.timestamp | databaseDate}}</i>
+               </div>
+               <div id="o-collapse-id-{{$index}}" class="collapse request-info">            
+                  <div class="offerDetailHeader">Original Request:</div>
+                  <div class="offerDetailText">{{offer.requestDescription}}</div>
+                  <div class="offerDetailHeader">Your Offer:</div>
+                  <div class="offerDetailText">{{offer.description}}</div>
+                  <br/>
+                  <div style="text-align:right">
+                     <button type="button" ng-click="editOffer(offer)" class="btn btn-success o-r-btn">
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"/> Edit Offer
+                     </button>
+                     <button type="button" ng-click="deleteOffer(offer)" class="btn btn-danger o-r-btn">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"/> Delete Offer
+                     </button>
+                  </div>
+               </div>
+            </div>
+
          </div>
       </div>
    </div>
 </div>
 
-{{requests}}
+{{myOffers}}

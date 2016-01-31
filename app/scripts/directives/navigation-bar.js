@@ -19,7 +19,7 @@ angular.module('hackucscApp')
             scope.user = $firebaseObject(Ref.child('users').child(auth.uid));
             scope.showNav = true;
           } else {
-            scope.user = [];
+            scope.user = {};
             scope.showNav = false;
           }
         };
