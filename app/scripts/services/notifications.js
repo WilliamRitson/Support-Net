@@ -25,7 +25,7 @@ angular.module('hackucscApp')
 			var that = this;
 
 			if (typeof organisation === 'string') {
-				$firebaseObject(Ref.child('organisation').child(organisation)).$loaded.then(function (organisation) {
+				$firebaseObject(Ref.child('organisation').child(organisation)).$loaded().then(function (organisation) {
 					organisation.users.forEach(function (user) {
 						that.notifyUser(user, notification);
 					});
