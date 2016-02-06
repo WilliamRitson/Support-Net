@@ -20,8 +20,9 @@ angular.module('hackucscApp')
 					name: '',
 					description: '',
 					dropOff: '',
-					users: [user.$id]
+					users: {}
 				};
+				$scope.org.users[user.$id] = true;
 			} else {
 				$scope.org = $firebaseObject(Ref.child('organisation').child(id));
 			}
@@ -31,8 +32,14 @@ angular.module('hackucscApp')
 		var save = function() {
 			if ($routeParams.id === 'new') {
 				if ($scope.okName($scope.org.name)) {
-					orgs[$scope.org.name] = $scope.org;
-					orgs.$save();
+					var newOrg = $firebaseObject(Ref.child('organisation').child($scope.org.name));
+					newOrg.name = $scope.org.name;
+					newOrg.description = $scope.org.description;
+					newOrg.dropOff = $scope.org.dropOff;
+					newOrg.users = $scope.org.users;
+					newOrg.$save();
+					//orgs[$scope.org.name] = $scope.org;
+					//orgs.$save();
 					user.orgs = (user.orgs || []).concat([$scope.org.name]);
 					user.$save();
 				}
